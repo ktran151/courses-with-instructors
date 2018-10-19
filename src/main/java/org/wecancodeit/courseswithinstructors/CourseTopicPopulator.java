@@ -17,14 +17,19 @@ public class CourseTopicPopulator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		instructorRepo.save(new Instructor("Brian", "Forsythe"));
-		instructorRepo.save(new Instructor("Donny", "Hamilton"));
-		instructorRepo.save(new Instructor("Alan", "Kostrick"));
+		Instructor instructorOne = new Instructor("Brian", "Forsythe");
+		Instructor instructorTwo = new Instructor("Donny", "Hamilton");
+		Instructor instructorThree = new Instructor("Alan", "Kostrick");
 
-		courseRepo.save(new CourseTopic("Spring"));
-		courseRepo.save(new CourseTopic("Java"));
-		courseRepo.save(new CourseTopic("HTML"));
-		courseRepo.save(new CourseTopic("Javascript"));
+		instructorOne = instructorRepo.save(instructorOne);
+		instructorTwo = instructorRepo.save(instructorTwo);
+		instructorThree = instructorRepo.save(instructorThree);
+		
+		courseRepo.save(new CourseTopic("Spring", instructorOne));
+		courseRepo.save(new CourseTopic("Java", instructorThree));
+		courseRepo.save(new CourseTopic("HTML", instructorTwo));
+		courseRepo.save(new CourseTopic("Javascript", instructorTwo));
+			
 	}
 
 }

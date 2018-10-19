@@ -5,7 +5,7 @@ import org.junit.Test;
 import junit.framework.Assert;
 
 public class CourseTopicTest {
-	CourseTopic underTest = new CourseTopic("James");
+	CourseTopic underTest = new CourseTopic("James", new Instructor());
 
 	@Test
 	public void shouldHaveAName() {
